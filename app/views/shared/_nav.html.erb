@@ -1,5 +1,16 @@
-<% Category.all.each do |category| %>
-  <li>
-      <%= link_to category.name, posts_path(category: category.name) %>
-  </li>
-<% end %>
+<header class="navbar navbar-top navbar-inverse">
+  <nav role="navigation">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Sample App</a>
+    </div>
+    <div class="container-fluid">
+      <ul class="nav navbar-nav navbar-right">
+        <% Category.all.each do |category| %>
+        <li>
+          <%= link_to category.name, posts_path(category: category.name) %>
+        </li>
+      <% end %>
+      </ul>
+    </div>
+  </nav>
+</header>
