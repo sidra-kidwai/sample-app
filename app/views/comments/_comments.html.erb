@@ -1,0 +1,9 @@
+<div class="row">
+  <div id="comments" class="col-md-6">
+    <% @comments.each do |comment| %>
+      <div class="comment">
+        <%= simple_format comment.content %>
+      </div>
+    <% end %>
+  </div>
+</div>
