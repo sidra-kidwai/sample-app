@@ -5,11 +5,32 @@
     </div>
     <div class="container-fluid">
       <ul class="nav navbar-nav navbar-right">
-        <% Category.all.each do |category| %>
         <li>
-          <%= link_to category.name, posts_path(category: category.name) %>
+          <div class="dropdown">
+            <div class="category" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Categories
+            </div>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <ul class="category-list">
+              <% Category.all.each do |category| %>
+                <li>
+                  <%= link_to category.name, posts_path(category: category.name), class: "dropdown-item" %>
+                </li>
+              <% end %>
+              </ul>
+            </div>
+          </div>
         </li>
-      <% end %>
+        <p class="navbar-text pull-right">
+        <% if user_signed_in? %>
+          Logged in as <strong><%= current_user.email %></strong>
+          <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+        <% else %>
+          <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+          <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+        <% end %>
+        </p>
       </ul>
     </div>
   </nav>

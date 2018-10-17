@@ -8,4 +8,4 @@
 Category.create(name: 'Fiction')
 Category.create(name: 'Science')
 Category.create(name: 'Information Technology')
-Category.create(name: 'Knowledger')
+Category.create(name: 'Knowledge')
