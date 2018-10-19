@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root to: 'posts#index'
+  get 'attachments/:id', to: 'attachments#show', defaults: { format: 'jpg' }, constraints: { subdomain: 'admin' }
+
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 

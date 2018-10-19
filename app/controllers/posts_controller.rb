@@ -19,6 +19,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @attachments = @post.attachments.build
   end
 
   def create
@@ -50,7 +51,7 @@ class PostsController < ApplicationController
 private
 
   def post_params
-    params.require(:post).permit(:title, :picture, :content, :category_id)
+    params.require(:post).permit(:title, :picture, :content, :category_id, attachments_attributes: [:file])
   end
 
   def find_post

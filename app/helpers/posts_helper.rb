@@ -1,5 +1,5 @@
 module PostsHelper
-  def post_image resource
-    image_tag(resource.picture.url, size: "100em") if resource.picture.present?
-  end
+  # def post_attachments attach
+  #     image_tag(attach.file.url, size: "100em") if attach.present?
+  # end
 end

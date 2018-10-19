@@ -9,10 +9,14 @@
     </div>
   </div>
   <div class="field form-group">
-    <%= f.label :picture, "Add a picture related to the post" %><br>
+    <%= f.fields_for :attachments do |atc| %>
+      <%= atc.label :file, "Add pictures to your post" %>
     <div class="col-sm-10">
-      <%= f.file_field :picture %> <br>
+      <%= atc.file_field :file, name: 'post[attachments_attributes][][file]' %> <br>
+      <%= atc.file_field :file, name: 'post[attachments_attributes][][file]'%> <br>
+
     </div>
+    <% end %>
   </div>
   <div class="field form-group">
     <%= f.label :title %><br>

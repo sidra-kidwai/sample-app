@@ -4,8 +4,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :comments, dependent: :destroy
-  mount_uploader :avatar, AvatarUploader
+  has_many :assignments
+  has_many :roles, through: :assignments
+  has_one :attachment, as: :attachable, dependent: :destroy
   devise :omniauthable, omniauth_providers: %i[google_oauth2]
+
+  accepts_nested_attributes_for :attachment, allow_destroy: true
 
   def self.from_omniauth(access_token)
     data = access_token.info

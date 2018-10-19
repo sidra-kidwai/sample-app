@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def user_image resource
-    image_tag(resource.avatar.url) if resource.avatar.present?
+ def attachment_image_tag attach
+      image_tag(attach.file.url, size: "100em") if attach.present?
   end
 end
