@@ -32,7 +32,7 @@ gem 'devise'
 # gem 'mini_magick', '~> 4.8'
 gem 'carrierwave', '~> 1.0'
 gem 'omniauth-google-oauth2'
-
+gem 'kaminari'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

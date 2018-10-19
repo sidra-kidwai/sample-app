@@ -10,5 +10,6 @@
 <%= link_to "Destroy", @post, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } %><br>
 
 <h2>Comments</h2>
+<%= paginate @comments %>
 <%= render 'comments/comments' %><br>
 <%= render 'comments/form' %>

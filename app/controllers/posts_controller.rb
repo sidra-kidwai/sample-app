@@ -4,16 +4,16 @@ class PostsController < ApplicationController
   
   def index
     if params[:category].blank?
-      @posts = Post.all
+      @posts = Post.all.page(params[:page]).per(2)
     else
       @category_id = Category.find_by(name: params[:category]).id
-      @posts = Post.where(category_id: @category_id).order("created_at DESC")
+      @posts = Post.where(category_id: @category_id).order("created_at DESC").page(params[:page]).per(5)
     end
   end
 
   def show
     @commentable = @post
-    @comments = @commentable.comments
+    @comments = @commentable.comments.page(params[:page]).per(2)
     @comment = Comment.new
   end
 
